@@ -1,0 +1,1 @@
+mysql -u corentin -p < gsb_frais_jeu_essaie.sql
