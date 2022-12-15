@@ -56,7 +56,7 @@ function dateAnglaisVersFrancais($maDate){
  * retourne le mois au format aaaamm selon le jour dans le mois
  
  * @param $date au format  jj/mm/aaaa
- * @return le mois au format aaaamm
+ * @return String mois au format aaaamm
 */
 function getMois($date){
 		@list($jour,$mois,$annee) = explode('/',$date);
@@ -71,7 +71,7 @@ function getMois($date){
  * Indique si une valeur est un entier positif ou nul
  
  * @param $valeur
- * @return vrai ou faux
+ * @return Boolean vrai ou faux
 */
 function estEntierPositif($valeur) {
 	return preg_match("/[^0-9]/", $valeur) == 0;

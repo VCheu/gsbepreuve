@@ -23,6 +23,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Structure de la table `FraisForfait`
 --
+use `gsb`;
 
 CREATE TABLE IF NOT EXISTS `FraisForfait` (
   `id` char(3) NOT NULL,

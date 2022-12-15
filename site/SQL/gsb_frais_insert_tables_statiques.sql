@@ -1,6 +1,7 @@
 --
 -- Contenu de la table `FraisForfait`
 --
+use `gsb`;
 
 INSERT INTO `FraisForfait` (`id`, `libelle`, `montant`) VALUES
 ('ETP', 'Forfait Etape', 110.00),
