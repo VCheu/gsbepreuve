@@ -18,8 +18,8 @@
 class PdoGsb{   		
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=gsb';   		
-      	private static $user='corentin' ;    		
-      	private static $mdp='simone' ;	
+      	private static $user='root' ;    		
+      	private static $mdp='root' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
@@ -206,7 +206,6 @@ class PdoGsb{
 		$laDerniereFiche = $this->getLesInfosFicheFrais($idVisiteur,$dernierMois);
 		if($laDerniereFiche['idEtat']=='CR'){
 				$this->majEtatFicheFrais($idVisiteur, $dernierMois,'CL');
-				
 		}
 		$req = "insert into FicheFrais(idVisiteur,mois,nbJustificatifs,montantValide,dateModif,idEtat) 
 		values('$idVisiteur','$mois',0,0,now(),'CR')";
@@ -214,7 +213,7 @@ class PdoGsb{
 		$lesIdFrais = $this->getLesIdFrais();
 		foreach($lesIdFrais as $uneLigneIdFrais){
 			$unIdFrais = $uneLigneIdFrais['idfrais'];
-			$req = "insert into LigneFraisForfait(idVisiteur,mois,idFraisForfait,quantite) 
+ 				$req = "insert into LigneFraisForfait(idVisiteur,mois,idFraisForfait,quantite) 
 			values('$idVisiteur','$mois','$unIdFrais',0)";
 			PdoGsb::$monPdo->exec($req);
 		 }
@@ -231,8 +230,9 @@ class PdoGsb{
 */
 	public function creeNouveauFraisHorsForfait($idVisiteur,$mois,$libelle,$date,$montant){
 		$dateFr = dateFrancaisVersAnglais($date);
-		$req = "INSERT INTO LigneFraisHorsForfait (`idVisiteur`,`mois`,`libelle`,`date`,`montant`) 
-            VALUES ('$idVisiteur','$mois','$libelle','$dateFr','$montant')";
+		$req = "insert into LigneFraisHorsForfait (idVisiteur,mois,libelle,date,montant)
+		values('$idVisiteur','$mois','$libelle','$dateFr','$montant')";
+		echo $req;
 		PdoGsb::$monPdo->exec($req);
 	}
 /**
